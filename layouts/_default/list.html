@@ -1,0 +1,11 @@
+{{ define "header" }}
+  {{ partial "header" . }}
+{{ end }}
+{{ define "main" }}
+  <h1>Listing</h1>
+  {{ range .Pages }}
+    <article>
+      {{ .Content }}
+    </article>
+  {{ end }}
+{{ end }}

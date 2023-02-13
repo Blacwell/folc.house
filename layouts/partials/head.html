@@ -1,0 +1,44 @@
+<head>
+  <!-- CSS -->
+  {{ $styles := resources.Get "css/main.css" | resources.PostCSS (dict "inlineImports" true) }}
+  {{ if hugo.IsProduction }}
+    {{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
+  {{ else }}
+    {{ $styles = $styles | resources.ExecuteAsTemplate (printf "css/index.dev.%v.css" now.UnixMilli) . }}
+  {{ end }}
+
+
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
+
+  <!-- JS -->
+  {{ $opts := dict "targetPath" "main.js" "target" "es2015" }}
+  {{ $build :=resources.Get "ts/main.ts" | js.Build $opts }}
+
+
+  <script type="text/javascript" src="{{ $build.RelPermalink }}" defer></script>
+
+  <!-- META -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
+  {{ $title := print .Title " | " .Site.Title }}
+  {{ if .IsHome }}
+    {{ $title = .Site.Title }}
+  {{ end }}
+  <title>{{ $title }}</title>
+
+  {{ block "meta" . }}
+    {{ partial "meta.html" . }}
+  {{ end }}
+
+
+  <!-- PWA -->
+
+  <!-- TYPE -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+    rel="stylesheet"
+  />
+</head>
