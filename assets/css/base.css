@@ -1,2 +1,9 @@
+@import "fonts/inter.css";
+@import "fonts/vollkorn.css";
+@import "fonts/junicode.css";
+
 @layer base {
+  html {
+    font-family: "Inter", serif;
+  }
 }
