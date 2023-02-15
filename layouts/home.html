@@ -4,18 +4,27 @@
 
 {{ define "main" }}
   <section>
-    <h1 class=" text-3xl uppercase ">The home of English heritage</h1>
+    <h1
+      class=" font-display text-3xl uppercase text-blood-30 dark:text-gold-50"
+    >
+      The home of English heritage
+    </h1>
     <p>
       Somewhere where one can go to learn about our heritage and to find others
       that share an interest. We work to connect those with a interest in
       learning and those with knowledge to share. A genuine and forthright
       place.
     </p>
-    <button>Foremost</button>
-    <button>Othermost</button>
+    <button onclick="chooseDyewise('dark')">Dark</button>
+    <button onclick="chooseDyewise('light')">Light</button>
+    <button onclick="chooseDyewise('system')">System</button>
+    <button onclick="console.log('eala!')">Test</button>
   </section>
   <section>
     <h1>Latest utterings</h1>
+    <article class="h-60 w-60">
+      <h2>A test article</h2>
+    </article>
   </section>
 {{ end }}
 

@@ -34,11 +34,37 @@
 
   <!-- PWA -->
 
-  <!-- TYPE -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
-    rel="stylesheet"
-  />
+  <!-- Theme -->
+  <script>
+    function setDyewise() {
+      const root = document.documentElement;
+      if (
+        localStorage.dyewise == "dark" ||
+        (!("dyewise" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme:dark)").matches)
+      ) {
+        console.log("add dark");
+        root.classList.add("dark");
+      } else {
+        console.log("remove dark");
+        root.classList.remove("dark");
+      }
+    }
+    function chooseDyewise(wise) {
+      switch (wise) {
+        case "light":
+        case "dark":
+          localStorage.dyewise = wise;
+          setDyewise();
+          break;
+        case "system":
+          localStorage.removeItem("dyewise");
+          setDyewise();
+          break;
+        default:
+          console.error("Invalid dyewise option.");
+      }
+    }
+    setDyewise();
+  </script>
 </head>
