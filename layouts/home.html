@@ -4,21 +4,28 @@
 
 {{ define "main" }}
   <section>
-    <h1
-      class=" font-display text-3xl uppercase text-blood-30 dark:text-gold-50"
-    >
-      The home of English heritage
-    </h1>
-    <p>
-      Somewhere where one can go to learn about our heritage and to find others
-      that share an interest. We work to connect those with a interest in
-      learning and those with knowledge to share. A genuine and forthright
-      place.
-    </p>
-    <button onclick="chooseDyewise('dark')">Dark</button>
-    <button onclick="chooseDyewise('light')">Light</button>
-    <button onclick="chooseDyewise('system')">System</button>
-    <button onclick="console.log('eala!')">Test</button>
+    <div class="w-[920px] text-center">
+      <div class=" flex gap-4">
+        <span>History</span>
+        <span>Tradition</span>
+        <span>Culture</span>
+      </div>
+      <h1
+        class=" font-display text-6xl font-medium uppercase text-blood-30 dark:text-gold-50"
+      >
+        The home of English heritage
+      </h1>
+      <p class="text-lg">
+        Somewhere where one can go to learn about our heritage and to find
+        others that share an interest. We work to connect those with a interest
+        in learning and those with knowledge to share. A genuine and forthright
+        place.
+      </p>
+      <button onclick="chooseDyewise('dark')">Dark</button>
+      <button onclick="chooseDyewise('light')">Light</button>
+      <button onclick="chooseDyewise('system')">System</button>
+      <button onclick="console.log('eala!')">Test</button>
+    </div>
   </section>
   <section>
     <h1>Latest utterings</h1>

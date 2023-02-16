@@ -108,15 +108,15 @@
 @supports (font-variation-settings: normal) {
   @font-face {
     font-family: "Vollkorn";
-    font-weight: 400 900;
+    font-weight: 100 900;
     font-display: swap;
     font-style: normal;
     font-named-instance: "Regular";
-    src: url("/fonts/vollkorn/variable-roman.woff2") format("woff2");
+    src: url("/fonts/vollkorn/variable-normal.woff2") format("woff2");
   }
   @font-face {
     font-family: "Vollkorn";
-    font-weight: 400 900;
+    font-weight: 100 900;
     font-display: swap;
     font-style: italic;
     font-named-instance: "Italic";

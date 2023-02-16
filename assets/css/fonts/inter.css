@@ -163,7 +163,7 @@
     font-display: swap;
     font-style: normal;
     font-named-instance: "Regular";
-    src: url("/fonts/inter/variable-roman.woff2?v=3.19") format("woff2");
+    src: url("/fonts/inter/variable-normal.woff2?v=3.19") format("woff2");
   }
   @font-face {
     font-family: "Inter";
