@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   {{ partial "head" . }}
-  <body class="bg-ream-95 text-ream-5 dark:bg-welc-5 dark:text-grey-80">
-    {{ block "header" . }}
-    {{ end }}
-    {{ block "main" . }}
-    {{ end }}
-    {{ block "footer" . }}
-    {{ end }}
-
+  <body
+    class="grid h-screen grid-cols-desktop bg-gradient-to-br from-white to-ream-90 text-ream-5 dark:text-grey-80"
+  >
+    <header>
+      {{ block "header" . }}{{ end }}
+    </header>
+    <div class="overflow-scroll">
+      <main class="min-h-full">
+        {{ block "main" . }}{{ end }}
+      </main>
+      {{ block "footer" . }}{{ end }}
+    </div>
   </body>
 </html>

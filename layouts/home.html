@@ -1,10 +1,10 @@
 {{ define "header" }}
-
+  {{ partial "ridge.html" . }}
 {{ end }}
 
 {{ define "main" }}
   <section>
-    <div class="w-[920px] text-center">
+    <div class="max-w-[920px] text-center">
       <div class=" flex gap-4">
         <span>History</span>
         <span>Tradition</span>
@@ -21,10 +21,6 @@
         in learning and those with knowledge to share. A genuine and forthright
         place.
       </p>
-      <button onclick="chooseDyewise('dark')">Dark</button>
-      <button onclick="chooseDyewise('light')">Light</button>
-      <button onclick="chooseDyewise('system')">System</button>
-      <button onclick="console.log('eala!')">Test</button>
     </div>
   </section>
   <section>
@@ -36,5 +32,5 @@
 {{ end }}
 
 {{ define "footer" }}
-
+  {{ partial "footer.html" . }}
 {{ end }}

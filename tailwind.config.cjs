@@ -109,7 +109,9 @@ module.exports = {
       black: "hsl(var(--black) / <alpha-value>)",
       white: "hsl(var(--white) / <alpha-value>)",
     },
-    extend: {},
+    extend: {
+      gridTemplateColumns: { desktop: "1fr 6fr" },
+    },
   },
   plugins: [require("@tailwindcss/typography")],
 };

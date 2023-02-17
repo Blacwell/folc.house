@@ -11,11 +11,14 @@
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
 
   <!-- JS -->
+  {{ $preopts := dict "targetPath" "preload.js" "target" "es2015" }}
   {{ $opts := dict "targetPath" "main.js" "target" "es2015" }}
+  {{ $preload :=resources.Get "ts/preload.ts" | js.Build $preopts }}
   {{ $build :=resources.Get "ts/main.ts" | js.Build $opts }}
 
 
-  <script type="text/javascript" src="{{ $build.RelPermalink }}" defer></script>
+  <script src="{{ $preload.RelPermalink }}"></script>
+  <script src="{{ $build.RelPermalink }}" defer></script>
 
   <!-- META -->
   <meta charset="UTF-8" />
@@ -33,38 +36,4 @@
 
 
   <!-- PWA -->
-
-  <!-- Theme -->
-  <script>
-    function setDyewise() {
-      const root = document.documentElement;
-      if (
-        localStorage.dyewise == "dark" ||
-        (!("dyewise" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme:dark)").matches)
-      ) {
-        console.log("add dark");
-        root.classList.add("dark");
-      } else {
-        console.log("remove dark");
-        root.classList.remove("dark");
-      }
-    }
-    function chooseDyewise(wise) {
-      switch (wise) {
-        case "light":
-        case "dark":
-          localStorage.dyewise = wise;
-          setDyewise();
-          break;
-        case "system":
-          localStorage.removeItem("dyewise");
-          setDyewise();
-          break;
-        default:
-          console.error("Invalid dyewise option.");
-      }
-    }
-    setDyewise();
-  </script>
 </head>
