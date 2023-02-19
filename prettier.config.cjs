@@ -1,11 +1,21 @@
 module.exports = {
-  plugins: [require("prettier-plugin-tailwindcss")],
+  plugins: [
+    // require.resolve("prettier-plugin-astro"),
+    // require.resolve("prettier-plugin-svelte"),
+  ],
   overrides: [
     {
-      files: ["*.html"],
+      files: "*.astro",
       options: {
-        parser: "go-template",
+        parser: "astro",
+      },
+    },
+    {
+      files: "*.svelte",
+      options: {
+        parser: "svelte",
       },
     },
   ],
+  pluginSearchDirs: ["."],
 };

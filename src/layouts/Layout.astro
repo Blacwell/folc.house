@@ -1,0 +1,44 @@
+---
+import "../css/main.css";
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <script is:inline>
+      const wise = localStorage.getItem("dyewise");
+      if (
+        wise === "dark" ||
+        (wise === "system" &&
+          window.matchMedia("(prefers-color-scheme:dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body><style is:global>
+    body {
+      @apply bg-gradient-to-br from-ream-90 to-ream-70 text-ream-5 dark:text-grey-80;
+    }
+    .marcle {
+      @apply fill-grey-20 transition-colors duration-200 ease-in hover:fill-blood-30;
+    }
+    .marcle-on-dark {
+      @apply fill-grey-90 transition-colors duration-200 ease-in hover:fill-gold-50;
+    }
+  </style>
+</html>

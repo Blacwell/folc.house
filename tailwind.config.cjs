@@ -1,10 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./layouts/**/*.{html,js,ts,svg}",
-    "./content/**/*.{html,md,ts}",
-    "./assets/**/*{html,js,ts}",
-  ],
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,css}"],
   darkMode: "class",
   theme: {
     fontFamily: {
@@ -110,7 +106,10 @@ module.exports = {
       white: "hsl(var(--white) / <alpha-value>)",
     },
     extend: {
-      gridTemplateColumns: { desktop: "1fr 6fr" },
+      gridTemplateColumns: { desktop: "200px 6fr" },
+      gridTemplateRows: {
+        ridge: "14rem 1fr 6rem 10rem",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],

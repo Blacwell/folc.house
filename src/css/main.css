@@ -1,0 +1,12 @@
+@import "base.css";
+@import "components.css";
+@import "utilities.css";
+@import "dye.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a {
+  @apply underline decoration-transparent decoration-2 transition-all duration-200 hover:decoration-current;
+}
