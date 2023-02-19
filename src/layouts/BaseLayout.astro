@@ -1,4 +1,7 @@
 ---
+import DyewiseToggle from "@components/dyewise-toggle.svelte";
+import Footer from "@components/footer.svelte";
+import Ridge from "@components/ridge.svelte";
 import "../css/main.css";
 export interface Props {
   title: string;
@@ -28,17 +31,32 @@ const { title } = Astro.props;
       }
     </script>
   </head>
-  <body>
-    <slot />
-  </body><style is:global>
-    body {
-      @apply bg-gradient-to-br from-ream-90 to-ream-70 text-ream-5 dark:text-grey-80;
-    }
+
+  <body
+    class="min-h-fit bg-gradient-to-br from-ream-90 to-ream-70 text-ream-5 dark:text-grey-80"
+  >
+    <div class="relative grid h-screen grid-cols-desktop overflow-hidden">
+      <Ridge>
+        <DyewiseToggle client:only />
+      </Ridge>
+      <div id="content-window" class="overflow-y-scroll">
+        <main class="min-h-full">
+          <slot />
+          <Footer />
+        </main>
+      </div>
+    </div>
+  </body>
+
+  <style is:global>
     .marcle {
       @apply fill-grey-20 transition-colors duration-200 ease-in hover:fill-blood-30;
     }
     .marcle-on-dark {
       @apply fill-grey-90 transition-colors duration-200 ease-in hover:fill-gold-50;
+    }
+    html {
+      @apply font-body;
     }
   </style>
 </html>

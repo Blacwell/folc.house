@@ -4,8 +4,4 @@
   @import "fonts/junicode.css";
 
   @import "dye.css";
-
-  html {
-    @apply font-body;
-  }
 }

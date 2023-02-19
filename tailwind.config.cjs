@@ -106,9 +106,14 @@ module.exports = {
       white: "hsl(var(--white) / <alpha-value>)",
     },
     extend: {
-      gridTemplateColumns: { desktop: "200px 6fr" },
+      gridTemplateColumns: {
+        desktop: "200px 6fr",
+      },
       gridTemplateRows: {
         ridge: "14rem 1fr 6rem 10rem",
+      },
+      aspectRatio: {
+        foolscap: "13 / 8",
       },
     },
   },

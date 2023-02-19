@@ -1,16 +1,14 @@
 <script lang="ts">
-  import DyewiseToggle from "./dyewise-toggle.svelte";
   import Brandmarc from "./svgs/brandmarc.svelte";
   import Github from "./svgs/icons/github.svelte";
   import Youtube from "./svgs/icons/youtube.svelte";
   import Twitter from "./svgs/icons/twitter.svelte";
-  import MagnifyingGlass from "./svgs/icons/magnifying-glass.svelte";
   import Pattern from "./svgs/ridge-pattern.svelte";
 </script>
 
 <div
   id="ridge"
-  class="bg-gradient-to-tl from-blood-10 to-blood-20 pr-2 shadow-xl"
+  class="relative bg-gradient-to-tl from-blood-10 to-blood-20 pr-2 shadow-xl"
 >
   <div
     class="grid h-full w-full grid-rows-ridge border-r-2 border-ream-90 text-gold-40"

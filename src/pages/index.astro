@@ -1,47 +1,47 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Ridge from "../components/ridge.svelte";
-import Footer from "../components/footer.svelte";
-import DyewiseToggle from "../components/dyewise-toggle.svelte";
+import Layout from "@layouts/BaseLayout.astro";
+import Ridge from "@components/ridge.svelte";
+import Footer from "@components/footer.svelte";
+import DyewiseToggle from "@components/dyewise-toggle.svelte";
+import Card from "@components/card.svelte";
+
+import { getCollection } from "astro:content";
+const allArticles = await getCollection("articles");
 ---
 
 <Layout title="Welcome to Astro.">
-  <div class="relative grid h-screen grid-cols-desktop">
-    <Ridge>
-      <DyewiseToggle client:only />
-    </Ridge>
-    <div id="content-window" class="overflow-y-scroll">
-      <main class="min-h-full">
-        <section>
-          <div class="max-w-[920px] text-center">
-            <div class="flex gap-4">
-              <span>History</span>
-              <span>Tradition</span>
-              <span>Culture</span>
-            </div>
-            <h1
-              class="font-display text-6xl font-medium uppercase text-blood-30 dark:text-gold-50"
-            >
-              The home of English heritage
-            </h1>
-            <p class="text-lg">
-              Somewhere where one can go to learn about our heritage and to find
-              others that share an interest. We work to connect those with a
-              interest in learning and those with knowledge to share. A genuine
-              and forthright place.
-            </p>
-          </div>
-        </section>
-        <section>
-          <h1>Latest utterings</h1>
-          <article class="h-60 w-60">
-            <h2>A test article</h2>
-          </article>
-        </section>
-      </main>
-      <Footer />
+  <section>
+    <div class="max-w-[920px] text-center">
+      <div class="flex gap-4">
+        <span>History</span>
+        <span>Tradition</span>
+        <span>Culture</span>
+      </div>
+      <h1
+        class="font-display text-6xl font-medium uppercase text-blood-30 dark:text-gold-50"
+      >
+        The home of English heritage
+      </h1>
+      <p class="text-lg">
+        Somewhere where one can go to learn about our heritage and to find
+        others that share an interest. We work to connect those with a interest
+        in learning and those with knowledge to share. A genuine and forthright
+        place.
+      </p>
     </div>
-  </div>
+  </section>
+  <section>
+    <h1>Latest utterings</h1>
+    <ul>
+      {
+        allArticles.map((article) => (
+          <li>
+            <Card {article} />
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </Layout>
 
 <style></style>
