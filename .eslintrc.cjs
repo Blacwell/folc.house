@@ -1,5 +1,9 @@
 module.exports = {
-  // ...
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    sourceType: "module",
+    ecmaVersion: 2021,
+  },
   extends: [
     // ...
     "plugin:astro/recommended",
@@ -23,8 +27,4 @@ module.exports = {
       },
     },
   ],
-  parserOptions: {
-    sourceType: "module",
-    ecmaVersion: 2015,
-  },
 };

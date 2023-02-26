@@ -1,37 +1,43 @@
 ---
 import Layout from "@layouts/BaseLayout.astro";
-import Ridge from "@components/ridge.svelte";
-import Footer from "@components/footer.svelte";
-import DyewiseToggle from "@components/dyewise-toggle.svelte";
 import Card from "@components/card.svelte";
+import Earth from "@svgs/earth.svelte";
+import ThreeWords from "@components/three-words.svelte";
 
 import { getCollection } from "astro:content";
 const allArticles = await getCollection("articles");
 ---
 
-<Layout title="Welcome to Astro.">
-  <section>
-    <div class="max-w-[920px] text-center">
-      <div class="flex gap-4">
-        <span>History</span>
-        <span>Tradition</span>
-        <span>Culture</span>
-      </div>
+<Layout title="Welcome to LoreHouse.">
+  <section class="relative mb-16">
+    <div class="mx-4 max-w-[920px] text-center">
       <h1
-        class="font-display text-6xl font-medium uppercase text-blood-30 dark:text-gold-50"
+        class="mt-14 font-display text-4xl font-medium uppercase text-blood-30 dark:text-gold-50"
       >
         The home of English heritage
       </h1>
-      <p class="text-lg">
+      <ThreeWords />
+      <p class="my-10 px-2">
         Somewhere where one can go to learn about our heritage and to find
         others that share an interest. We work to connect those with a interest
-        in learning and those with knowledge to share. A genuine and forthright
-        place.
+        in learning and those with knowledge to share.
       </p>
+      <div class="m-4">
+        <button>Work</button>
+      </div>
+    </div>
+    <div
+      id="earth"
+      class="absolute -top-20 right-1/2 -z-10 -mr-[475px] w-[900px]"
+    >
+      <Earth viewBox="225 0 1800 1680" />
     </div>
   </section>
+
   <section>
-    <h1>Latest utterings</h1>
+    <h2 class="mt-6 text-center font-display text-6xl font-semibold">
+      Latest Utterings
+    </h2>
     <ul>
       {
         allArticles.map((article) => (
@@ -44,4 +50,13 @@ const allArticles = await getCollection("articles");
   </section>
 </Layout>
 
-<style></style>
+<style>
+  #earth {
+    mask-image: radial-gradient(
+      closest-side at 50% 40%,
+      black 60%,
+      hsla(88, 82%, 37%, 0) 100%
+    );
+    /* mask-image: ; */
+  }
+</style>

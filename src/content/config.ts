@@ -10,6 +10,7 @@ const articleCollection = defineCollection({
       .object({
         src: z.string(),
         alt: z.string(),
+        caption: z.string(),
       })
       .optional(),
     publishDate: z.string().transform((str) => new Date(str)),

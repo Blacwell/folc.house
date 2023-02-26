@@ -5,7 +5,7 @@
 <footer
   class="grid grid-cols-2 place-items-center bg-grey-5 py-4 px-2 text-sm text-grey-80"
 >
-  <p>Copyright © 2023 FolcHouse. All rights reserved</p>
+  <p>© 2023 FolcHouse.</p>
   <div>
     <a href="">Privacy Policy</a>
     <a href="">Terms & Conditions</a>

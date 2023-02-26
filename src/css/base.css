@@ -1,7 +1,0 @@
-@layer base {
-  @import "fonts/inter.css";
-  @import "fonts/vollkorn.css";
-  @import "fonts/junicode.css";
-
-  @import "dye.css";
-}

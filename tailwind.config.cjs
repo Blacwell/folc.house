@@ -4,9 +4,10 @@ module.exports = {
   darkMode: "class",
   theme: {
     fontFamily: {
-      display: ["Vollkorn", "serif"],
-      body: ["Inter", "sans-serif"],
+      display: ["Vollkorn, serif", { fontFeatureSettings: '"dlig", "calt" 0' }],
+      body: ["Inter, sans-serif"],
       manuscript: ["Junicode", "serif"],
+      code: ["JetBrains Mono", "monospace"],
     },
     colors: {
       transparent: "transparent",
@@ -107,10 +108,16 @@ module.exports = {
     },
     extend: {
       gridTemplateColumns: {
-        desktop: "200px 6fr",
+        cover: "200px 6fr",
+        "cover-sm": "0px 1fr",
+        "cover-md": "200px 6fr",
+        "cover-lg": "200px 6fr",
+        "cover-xl": "200px 6fr",
+        "cover-2xl": "200px 6fr",
       },
       gridTemplateRows: {
         ridge: "14rem 1fr 6rem 10rem",
+        cover: "10rem 1fr 6rem 6rem",
       },
       aspectRatio: {
         foolscap: "13 / 8",

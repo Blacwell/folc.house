@@ -1,8 +1,16 @@
 ---
 import DyewiseToggle from "@components/dyewise-toggle.svelte";
 import Footer from "@components/footer.svelte";
-import Ridge from "@components/ridge.svelte";
-import "../css/main.css";
+import Steer from "@components/steer/steer.svelte";
+import Header from "@components/header.svelte";
+
+import "@css/dye.css";
+import "@css/main.css";
+import "@css/fonts/inter.css";
+import "@css/fonts/vollkorn.css";
+import "@css/fonts/junicode.css";
+import Ridge from "@components/steer/ridge.svelte";
+
 export interface Props {
   title: string;
 }
@@ -17,6 +25,10 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link href="https://fonts.bunny.net/css" rel="stylesheet" />
+
     <title>{title}</title>
     <script is:inline>
       const wise = localStorage.getItem("dyewise");
@@ -35,17 +47,19 @@ const { title } = Astro.props;
   <body
     class="min-h-fit bg-gradient-to-br from-ream-90 to-ream-70 text-ream-5 dark:text-grey-80"
   >
-    <div class="relative grid h-screen grid-cols-desktop overflow-hidden">
-      <Ridge>
-        <DyewiseToggle client:only />
-      </Ridge>
-      <div id="content-window" class="overflow-y-scroll">
-        <main class="min-h-full">
-          <slot />
-          <Footer />
-        </main>
-      </div>
-    </div>
+    <!-- <div
+      class="relative grid h-screen grid-cols-cover-sm overflow-hidden transition-[grid-template-columns] duration-500 lg:grid-cols-cover-lg"
+    > -->
+    <Ridge client:only />
+    <main
+      id="main"
+      class="relative min-h-full max-w-screen-xl overflow-x-hidden"
+    >
+      <Header />
+      <slot />
+      <Footer />
+    </main>
+    <!-- </div> -->
   </body>
 
   <style is:global>
@@ -55,8 +69,8 @@ const { title } = Astro.props;
     .marcle-on-dark {
       @apply fill-grey-90 transition-colors duration-200 ease-in hover:fill-gold-50;
     }
-    html {
-      @apply font-body;
+    .uicase {
+      @apply -mb-[0.15em] uppercase leading-none;
     }
   </style>
 </html>
