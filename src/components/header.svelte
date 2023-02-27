@@ -3,7 +3,7 @@
 </script>
 
 <div
-  class="relative mb-6 flex h-16 w-full items-center justify-between bg-blood-20 px-4 text-gold-40"
+  class="relative mb-6 flex h-16 w-full items-center justify-between bg-blood-20 px-4 text-gold-40 lg:hidden"
 >
   <div class="w-16" />
   <div>

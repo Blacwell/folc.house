@@ -14,7 +14,7 @@
   const webp = src.replace(/\.[^/.]+$/, ".webp");
 </script>
 
-<figure class="my-4">
+<figure class="">
   <picture class="aspect-{ratio} overflow-hidden rounded-sm {className}">
     <source srcset={webp} type="image/webp" />
     <img {src} {alt} class="object-{fit} object-{position}" />

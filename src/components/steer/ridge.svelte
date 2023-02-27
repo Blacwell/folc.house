@@ -6,16 +6,19 @@
   import MarcleItems from "./deals/marcle-items.svelte";
   import Marcle from "@components/marcle.svelte";
 
-  //                         sm  | md  |  lg  |  xl  | 2xl
-  type tailwindBreakpoints = 460 | 768 | 1024 | 1280 | 1536;
+  enum Breakpoint {
+    Sm = 460,
+    Md = 768,
+    Lg = 1024,
+    Xl = 1280,
+    Xxl = 1536,
+  }
 
-  // screen width (in px) at which the steer kind changes
-  const breakpoint: tailwindBreakpoints = 1024;
   let isWide = false;
 
   function checkIfWide() {
     const documentWidth = document.documentElement.clientWidth;
-    isWide = documentWidth >= breakpoint ? true : false;
+    isWide = documentWidth >= Breakpoint.Lg ? true : false;
   }
 
   checkIfWide();
@@ -26,7 +29,7 @@
 {#if isWide}
   <div
     id="ridge"
-    class="andwork-cloth | relative bg-gradient-to-tl from-blood-10 to-blood-20 pr-2 shadow-xl"
+    class="andwork-cloth | fixed inset-y-0 z-50 w-52 bg-gradient-to-tl from-blood-10 to-blood-20 pr-2 shadow-xl"
   >
     <div
       class="grid h-full w-full grid-rows-ridge border-r-2 border-ream-90 text-gold-40"
