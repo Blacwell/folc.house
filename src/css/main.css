@@ -13,11 +13,17 @@
     @apply text-[0] leading-none no-underline;
   }
   button {
-    @apply h-14 w-full rounded bg-blood-30 text-grey-95;
+    @apply w-fit border-2 border-blood-30 bg-blood-30 px-6 py-3 text-sm uppercase  text-grey-95;
+  }
+  button.other {
+    @apply border-2 border-grey-20 bg-transparent text-grey-10;
   }
   code {
     @apply font-code;
   }
+}
+
+@layer utilities {
   .andwork-cloth {
     background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='40' height='40' patternTransform='scale(0.2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(351, 87%, 15%, 1)'/><path d='M20-5V5m0 30v10m20-30v10M0 15v10'  stroke-linecap='square' stroke-width='14.5' stroke='hsla(343, 90%, 20%, 1)' fill='none'/><path d='M-5 40H5M-5 0H5m30 0h10M35 40h10M15 20h10'  stroke-linecap='square' stroke-width='14.5' stroke='hsla(343, 98%, 20%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
   }

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import SteerItems from "../steer/deals/steer-items.svelte";
-  import MarcleItems from "../steer/deals/marcle-items.svelte";
+  import SteerItems from "../steer/steer-items.svelte";
+  import MarcleItems from "../steer/marcle-items.svelte";
   import Brandmarc from "@svgs/brandmarc.svelte";
   import Pattern from "@svgs/berry-pattern.svelte";
   import { modal } from "@components/stores/modalManager";

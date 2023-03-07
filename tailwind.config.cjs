@@ -114,15 +114,15 @@ module.exports = {
         "cover-lg": "200px 6fr",
         "cover-xl": "200px 6fr",
         "cover-2xl": "200px 6fr",
-        card: "auto 28%",
       },
       gridTemplateRows: {
-        ridge: "14rem 1fr 6rem 10rem",
+        ridge: "14rem 1fr auto auto",
         cover: "10rem 1fr 6rem 6rem",
         card: "auto auto auto",
       },
       aspectRatio: {
-        foolscap: "13 / 8",
+        "foolscap-wide": "13 / 8",
+        "foolscap-tall": "8 / 13",
       },
     },
   },

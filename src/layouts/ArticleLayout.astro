@@ -1,43 +1,21 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import type { MarkdownLayoutProps } from "astro";
-import Image from "@components/image.svelte";
 import type { CollectionEntry } from "astro:content";
-import Breadcrumb from "@components/breadcrumb.svelte";
+import Article from "@components/article.svelte";
 
 type Props = MarkdownLayoutProps<CollectionEntry<"articles">["data"]>;
 const { frontmatter } = Astro.props;
-
-// const url = frontmatter.url ? new URL(frontmatter.url) : new URL("");
-// const path = url.pathname;
-// const pathDeals = path.split("/");
-
-const crumbs = [
-  {
-    name: "Articles",
-    href: "/articles",
-  },
-  {
-    name: frontmatter.category,
-    href: `/seek/${frontmatter.category}`,
-  },
-];
 ---
 
 <BaseLayout title={frontmatter.title}>
-  <article class="m-4">
-    <Breadcrumb {crumbs} />
-    <h1 class="font-display text-4xl font-semibold uppercase text-grey-10">
-      {frontmatter.title}
-    </h1>
-    <Image
-      src={frontmatter.image?.src}
-      alt={frontmatter.image?.alt}
-      caption={frontmatter.image?.caption}
-    />
-    <p class="mb-6 font-semibold">{frontmatter.lead}</p>
-    <section class="prose prose-lg dark:prose-invert prose-p:text-grey-10">
-      <slot />
-    </section>
-  </article>
+  <Article
+    title={frontmatter.title}
+    src={frontmatter.image?.src}
+    alt={frontmatter.image?.alt}
+    caption={frontmatter.image?.caption}
+    lead={frontmatter.lead}
+  >
+    <slot />
+  </Article>
 </BaseLayout>

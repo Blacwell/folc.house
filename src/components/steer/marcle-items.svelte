@@ -7,10 +7,13 @@
     { marcle: socials.twitter.marcle, href: socials.twitter.url },
     { marcle: socials.github.marcle, href: socials.github.url },
   ];
+
+  let className = "";
+  export { className as class };
 </script>
 
 <ul
-  class="flex w-fit justify-center gap-4 border-y-4 border-blood-10 py-4 px-6"
+  class="mx-2 flex flex-wrap justify-center gap-4 border-y-4 border-blood-10 py-4 px-2 {className}"
 >
   {#each marcleItems as item}
     <li>
