@@ -7,13 +7,13 @@
 <nav class="my-4 text-sm font-medium">
   <ol class="flex">
     <li>
-      <a href="/"><Marcle class="h-5 w-5" path={{ outline: "home" }} /></a>
-      <Marcle class="h-5 w-5" path={{ outline: "chevronRight" }} />
+      <a href="/"><Marcle class="h-5 w-5" shape={{ outline: "home" }} /></a>
+      <Marcle class="h-5 w-5" shape={{ outline: "chevronRight" }} />
     </li>
     {#each crumbs as crumb}
       <li class="uppercase">
         <a href={crumb.href}>{crumb.name}</a>
-        <Marcle class="h-5 w-5" path={{ outline: "chevronRight" }} />
+        <Marcle class="h-5 w-5" shape={{ outline: "chevronRight" }} />
       </li>
     {/each}
   </ol>

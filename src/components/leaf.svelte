@@ -28,10 +28,10 @@
 </script>
 
 <article
-  class="relative w-full overflow-hidden bg-ream-95 p-2
+  class="bg-ream-95 relative w-full overflow-hidden p-2
   shadow transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-lg"
 >
-  <div class="flex h-full flex-col border-2 border-gold-50 p-4">
+  <div class="border-yellow-50 flex h-full flex-col border-2 p-4">
     <div>
       {#if src}
         <a {href}>

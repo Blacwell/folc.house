@@ -1,0 +1,25 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Steer from "@components/steer.svelte";
+import Chat from "@components/modals/chat.svelte";
+
+const options = [
+  {
+    label: "Seek",
+    marcle: { set: "outline", shape: "magnifyingGlass" },
+    action: { href: "/seek" },
+  },
+  {
+    label: "Chat",
+    marcle: { set: "outline", shape: "chatBubbleLeftRight" },
+    action: { modal: "chat" },
+  },
+];
+---
+
+<BaseLayout title="">
+  <Steer slot="steer" client:only {options}>
+    <Chat client:only />
+  </Steer>
+  <slot />
+</BaseLayout>

@@ -8,7 +8,11 @@ module.exports = {
     // ...
     "plugin:astro/recommended",
   ],
-  // ...
+  settings: {
+    "import/resolver": {
+      typescript: {}, // this loads <rootdir>/tsconfig.json to eslint
+    },
+  },
   overrides: [
     {
       // Define the configuration for `.astro` file.

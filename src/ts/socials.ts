@@ -1,42 +1,42 @@
-import type { Brand } from "@icons/marcle-hoard";
+import type { MarcleQuery } from "@svgs/marcle-hoard";
 
 type Socials = {
   [key: string]: {
-    marcle: { brand: Brand };
+    marcle: MarcleQuery;
     url: string;
   };
 };
 
 const socials: Socials = {
   youtube: {
-    marcle: { brand: "youtube" },
+    marcle: { set: "brand", shape: "youtube" },
     url: "https://www.youtube.com/@FolcHouse",
   },
   odysee: {
-    marcle: { brand: "odysee" },
+    marcle: { set: "brand", shape: "odysee" },
     url: "",
   },
 
   matrix: {
-    marcle: { brand: "matrix" },
+    marcle: { set: "brand", shape: "matrix" },
     url: "",
   },
 
   reddit: {
-    marcle: { brand: "reddit" },
+    marcle: { set: "brand", shape: "reddit" },
     url: "",
   },
 
   instagram: {
-    marcle: { brand: "instagram" },
+    marcle: { set: "brand", shape: "instagram" },
     url: "",
   },
   twitter: {
-    marcle: { brand: "twitter" },
+    marcle: { set: "brand", shape: "twitter" },
     url: "https://twitter.com/FolcHouse",
   },
   github: {
-    marcle: { brand: "github" },
+    marcle: { set: "brand", shape: "github" },
     url: "https://github.com/Blacwell/folc.house",
   },
 };

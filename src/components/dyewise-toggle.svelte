@@ -56,7 +56,7 @@
            bg-grey-80 transition-all duration-300 ease-in-out group-hover:bg-grey-80"
     />
     <div
-      class="duration-400 my-2 h-1 w-full rounded-full bg-grey-80 transition ease-in-out group-hover:bg-blood-60"
+      class="duration-400 group-hover:bg-red-60 my-2 h-1 w-full rounded-full bg-grey-80 transition ease-in-out"
     />
   </button>
   <Moon

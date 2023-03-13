@@ -1,40 +1,47 @@
 <script lang="ts">
-  import marcleHoard from "@icons/marcle-hoard";
+  import type { MarcleQuery } from "@svgs/marcle-hoard";
+  import marclePathHoard from "@svgs/marcle-hoard";
 
-  enum Set {
-    Solid = "solid",
-    Outline = "outline",
-    Small = "small",
-    Brand = "brand",
-  }
-  type Path = { [key in Set]?: keyof (typeof marcleHoard)[key] };
+  let shapeRequest: MarcleQuery;
+  export { shapeRequest as shape };
 
-  export let path: Path;
-
-  let d = marcleHoard.outline.exclamationTriangle;
-  let viewBox = "0 0 24 24";
-  let fill = "none";
-  let stroke = "currentColor";
-
-  if (Object.keys(path).length === 1) {
-    if (Set.Solid in path) {
-      d = marcleHoard.solid[path.solid ?? "exclamationTriangle"];
-      fill = "currentColor";
-      stroke = "none";
-    } else if (Set.Outline in path) {
-      d = marcleHoard.outline[path.outline ?? "exclamationTriangle"];
-    } else if (Set.Small in path) {
-      d = marcleHoard.small[path.small ?? "exclamationTriangle"];
-      viewBox = "0 0 20 20";
-    } else if (Set.Brand in path) {
-      fill = "currentColor";
-      stroke = "none";
-      d = marcleHoard.brand[path.brand ?? "exclamationTriangle"];
-    }
-  }
-
-  let className = "h-6 w-6";
+  let className = "w-6 aspect-square";
   export { className as class };
+
+  const { set, shape } = shapeRequest;
+
+  let viewBox = "0 0 24 24";
+  let fill: "currentColor" | "none" = "none";
+  let stroke: "currentColor" | "none" = "currentColor";
+  let title = "";
+  let paths: string | string[];
+
+  switch (set) {
+    case "brand":
+      fill = "currentColor";
+      stroke = "none";
+      title = set;
+      paths = marclePathHoard[set][shape];
+      break;
+    case "outline":
+      title = set;
+      paths = marclePathHoard[set][shape];
+      break;
+    case "small":
+      title = set;
+      viewBox = "0 0 20 20";
+      paths = marclePathHoard[set][shape];
+      break;
+    case "solid":
+      title = set;
+      fill = "currentColor";
+      stroke = "none";
+      paths = marclePathHoard[set][shape];
+      break;
+  }
+
+  paths = Array.isArray(paths) ? paths : new Array(paths);
+  const formattedTitle = title.replace(/([A-Z])/g, " $1");
 </script>
 
 <svg
@@ -45,11 +52,14 @@
   {viewBox}
   class={className}
 >
-  <path
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    fill-rule="evenodd"
-    clip-rule="evenodd"
-    {d}
-  />
+  <title>{formattedTitle}</title>
+  {#each paths as d}
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      {d}
+    />
+  {/each}
 </svg>

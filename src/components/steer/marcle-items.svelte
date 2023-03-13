@@ -13,12 +13,12 @@
 </script>
 
 <ul
-  class="mx-2 flex flex-wrap justify-center gap-4 border-y-4 border-blood-10 py-4 px-2 {className}"
+  class="border-red-10 mx-2 flex flex-wrap justify-center gap-4 border-y-4 py-4 px-2 {className}"
 >
   {#each marcleItems as item}
     <li>
       <a href={item.href}>
-        <Marcle path={item.marcle} />
+        <Marcle shape={item.marcle} />
       </a>
     </li>
   {/each}

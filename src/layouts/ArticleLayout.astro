@@ -1,14 +1,48 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import Steer from "@components/steer.svelte";
 import type { MarkdownLayoutProps } from "astro";
 import type { CollectionEntry } from "astro:content";
 import Article from "@components/article.svelte";
+import About from "@components/modals/about.svelte";
+import Share from "@components/modals/share.svelte";
 
 type Props = MarkdownLayoutProps<CollectionEntry<"articles">["data"]>;
-const { frontmatter } = Astro.props;
+const { frontmatter, headings } = Astro.props;
+
+const data: AboutData = {
+  category: frontmatter.category,
+  tags: frontmatter.tags ?? [],
+  author: frontmatter.author,
+  date: frontmatter.publishDate,
+  headings,
+};
+
+const options: steerOption[] = [
+  {
+    label: "About",
+    marcle: { set: "outline", shape: "identification" },
+    action: { modal: "about" },
+  },
+  {
+    label: "Share",
+    marcle: { set: "outline", shape: "share" },
+    action: { modal: "share" },
+  },
+  {
+    label: "Home",
+    marcle: { set: "outline", shape: "home" },
+    action: { href: "/" },
+  },
+];
 ---
 
 <BaseLayout title={frontmatter.title}>
+  <Steer slot="steer" client:only {options}>
+    <About client:only {data} />
+    <Share client:only />
+  </Steer>
+
   <Article
     title={frontmatter.title}
     src={frontmatter.image?.src}

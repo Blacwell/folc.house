@@ -7,24 +7,47 @@
     @apply font-body text-grey-10;
   }
   a {
-    @apply underline decoration-transparent decoration-2 transition-all duration-200 hover:decoration-current;
+    @apply underline decoration-current decoration-1;
+  }
+  a.ui {
+    @apply decoration-transparent decoration-1 transition-all duration-200 hover:decoration-current;
   }
   a.link {
     @apply text-[0] leading-none no-underline;
   }
-  button {
-    @apply w-fit border-2 border-blood-30 bg-blood-30 px-6 py-3 text-sm uppercase  text-grey-95;
+  /* button {
+    @apply w-fit border-2 border-red-dark bg-red-dark px-6 py-3 text-sm uppercase  text-grey-95;
   }
   button.other {
     @apply border-2 border-grey-20 bg-transparent text-grey-10;
-  }
+  } */
   code {
     @apply font-code;
+  }
+  li::marker {
+    @apply text-yellow;
+    content: "";
+  }
+  li > ol > li::marker {
+    content: " ⬦  ";
+  }
+  li > ol > li > ol > li::marker {
+    content: " ⬦  ⬦  ";
   }
 }
 
 @layer utilities {
+  .highlightOnDark {
+    @apply fill-yellow text-yellow;
+  }
   .andwork-cloth {
     background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='40' height='40' patternTransform='scale(0.2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(351, 87%, 15%, 1)'/><path d='M20-5V5m0 30v10m20-30v10M0 15v10'  stroke-linecap='square' stroke-width='14.5' stroke='hsla(343, 90%, 20%, 1)' fill='none'/><path d='M-5 40H5M-5 0H5m30 0h10M35 40h10M15 20h10'  stroke-linecap='square' stroke-width='14.5' stroke='hsla(343, 98%, 20%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+  }
+  .top-after::after,
+  .top-before::before {
+    content: "";
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='000' viewBox='0 0 24 24'%0A%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' fill-rule='evenodd' clip-rule='evenodd' d='m 20.485281,9.8786797 a 3,3 0 0 1 1e-6,4.2426403 l -6.363962,6.363961 a 3,3 0 0 1 -4.2426403,0 L 3.5147185,14.12132 a 3,3 0 0 1 2e-7,-4.2426403 L 9.8786798,3.5147185 a 3,3 0 0 1 4.2426402,1e-7 z'/%3E%3C/svg%3E%0A");
+    mask-repeat: no-repeat;
+    mask-size: contain;
   }
 }
